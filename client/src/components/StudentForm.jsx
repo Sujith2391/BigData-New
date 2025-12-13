@@ -44,7 +44,14 @@ const StudentForm = ({ isOpen, onClose, onSubmit, initialData }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        onSubmit(formData);
+        // Sanitize data before sending
+        const payload = {
+            ...formData,
+            marks: Number(formData.marks),
+            semester: Number(formData.semester),
+            email: formData.email === '' ? undefined : formData.email // Handle empty email
+        };
+        onSubmit(payload);
     };
 
     const departments = ['CSE', 'ISE', 'ECE', 'MECH', 'CIVIL', 'EEE', 'AIML'];
