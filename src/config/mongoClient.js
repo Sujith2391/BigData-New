@@ -3,14 +3,11 @@ import dotenv from 'dotenv'
 
 dotenv.config()
 
-const { MONGODB_URI, MONGODB_DB_NAME } = process.env
+const MONGODB_URI = process.env.MONGODB_URI || process.env.MONGO_URI // Support both naming conventions
+const MONGODB_DB_NAME = process.env.MONGODB_DB_NAME || 'test' // Fallback to 'test' if not provided
 
 if (!MONGODB_URI) {
-  throw new Error('MONGODB_URI is not set. Check your environment configuration.')
-}
-
-if (!MONGODB_DB_NAME) {
-  throw new Error('MONGODB_DB_NAME is not set. Check your environment configuration.')
+  throw new Error('MONGODB_URI is not set. Please set MONGO_URI in your environment variables.')
 }
 
 const mongoClient = new MongoClient(MONGODB_URI, {
