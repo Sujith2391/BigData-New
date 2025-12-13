@@ -7,7 +7,7 @@
     "dev": "nodemon src/app.js",
     "dev:all": "concurrently \"npm run dev\" \"npm run dev --prefix client\"",
     "start": "node src/app.js",
-    "build": "npm install --prefix client && npm run build --prefix client",
+    "build": "cd client && npm install --include=dev && npm run build",
     "setup": "node scripts/setup.js",
     "teardown": "node scripts/teardown.js",
     "seed": "node scripts/seed.js",
