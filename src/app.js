@@ -53,7 +53,19 @@ const startServer = async () => {
   }
 }
 
-startServer()
+if (process.env.NODE_ENV !== 'production' || !process.env.VERCEL) {
+  startServer()
+} else {
+  // For Vercel, we need to export the app but also ensure DB connects.
+  // Vercel handles the server listening.
+  // We can trigger DB connection asynchronously.
+  const { getClient } = await import('./config/mongoClient.js')
+  getClient().then(() => {
+    console.log('Connected to MongoDB (Vercel)')
+  }).catch(err => {
+    console.error('Failed to connect to MongoDB (Vercel)', err)
+  })
+}
 
 export default app
 
