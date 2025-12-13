@@ -1,0 +1,53 @@
+### Health check
+GET http://localhost:3000/health
+
+###
+
+### Create a student
+POST http://localhost:3000/api/students
+Content-Type: application/json
+
+{
+  "name": "Test Student",
+  "usn": "CSE2021999",
+  "email": "test.student@example.edu",
+  "department": "Computer Science",
+  "semester": 6,
+  "marks": 84,
+  "subjects": [
+    { "code": "CS601", "name": "Distributed Systems", "marks": 88 },
+    { "code": "CS602", "name": "Data Mining", "marks": 80 }
+  ]
+}
+
+###
+
+### Get students filtered by mark range and sorted descending
+GET http://localhost:3000/api/students?minMarks=80&maxMarks=95&sort=desc
+
+###
+
+### Update an existing student (replace :id with actual value)
+PUT http://localhost:3000/api/students/{{studentId}}
+Content-Type: application/json
+
+{
+  "marks": 89,
+  "semester": 7
+}
+
+###
+
+### Delete a student
+DELETE http://localhost:3000/api/students/{{studentId}}
+
+###
+
+### Aggregation: Average marks grouped by semester
+GET http://localhost:3000/api/analytics/average-by-semester?minMarks=70
+
+###
+
+### Aggregation: Top performers by department
+GET http://localhost:3000/api/analytics/top-performers?limit=3
+
