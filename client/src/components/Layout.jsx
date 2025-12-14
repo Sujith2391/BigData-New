@@ -20,12 +20,7 @@ const Layout = ({ children }) => {
                     <NavItem to="/project-info" icon={Info} label="Project Info" />
                 </nav>
 
-                <div className="p-4 border-t border-slate-800">
-                    <button className="flex items-center gap-3 px-4 py-3 w-full text-sm font-medium text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg">
-                        <LogOut className="w-5 h-5" />
-                        <span>Sign Out</span>
-                    </button>
-                </div>
+
             </aside>
 
             <main className="flex-1 md:ml-64 p-6 md:p-8 pt-20 md:pt-8 relative overflow-hidden">
