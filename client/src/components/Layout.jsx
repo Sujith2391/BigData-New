@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { LayoutDashboard, Users, Info, LogOut } from 'lucide-react';
+import { LayoutDashboard, Users, Info, LogOut, BookOpen } from 'lucide-react';
 import { cn } from '../lib/utils';
 
 const Layout = ({ children }) => {
