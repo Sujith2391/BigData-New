@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { LayoutDashboard, Users, BookOpen, Settings, LogOut } from 'lucide-react';
+import { LayoutDashboard, Users, Info, LogOut } from 'lucide-react';
 import { cn } from '../lib/utils';
 
 const Layout = ({ children }) => {
@@ -17,8 +17,7 @@ const Layout = ({ children }) => {
                 <nav className="flex-1 p-4 space-y-1">
                     <NavItem to="/" icon={LayoutDashboard} label="Dashboard" end />
                     <NavItem to="/students" icon={Users} label="Students" />
-                    <NavItem to="/courses" icon={BookOpen} label="Courses" />
-                    <NavItem to="/settings" icon={Settings} label="Settings" />
+                    <NavItem to="/project-info" icon={Info} label="Project Info" />
                 </nav>
 
                 <div className="p-4 border-t border-slate-800">

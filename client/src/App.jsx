@@ -2,8 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Dashboard from './pages/Dashboard';
 import Students from './pages/Students';
-import Courses from './pages/Courses';
-import Settings from './pages/Settings';
+import ProjectInfo from './pages/ProjectInfo';
 
 function App() {
   return (
@@ -11,8 +10,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Dashboard />} />
         <Route path="/students" element={<Students />} />
-        <Route path="/courses" element={<Courses />} />
-        <Route path="/settings" element={<Settings />} />
+        <Route path="/project-info" element={<ProjectInfo />} />
       </Routes>
     </Router>
   )
